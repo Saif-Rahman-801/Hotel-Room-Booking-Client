@@ -23,7 +23,8 @@ const TestimonialC = () => {
   };
   return (
     
-      <div className="grid grid-cols-2 my-10">
+      <div className="w-[80%] mx-auto my-10">
+        <h2 className="text-center font-bold text-3xl my-10">Read about us from out guests </h2>
         <Slider {...sliderSettings}>
         {testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial._id} testimonial={testimonial} />
