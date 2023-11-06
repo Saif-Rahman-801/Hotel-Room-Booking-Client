@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="relative h-96 bg-gray-900 text-white flex items-center justify-center rounded-md mt-5">
+    <div className="relative h-96 bg-gray-900 text-white flex items-center justify-center rounded-md my-5">
       <div className="absolute inset-0">
         <img
           src="https://i.ibb.co/thfcQJ9/vojtech-bruzek-Yrxr3bs-Pd-S0-unsplash.jpg"
