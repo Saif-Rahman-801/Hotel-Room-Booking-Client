@@ -1,0 +1,74 @@
+[
+  {
+    "roomType": "Single Bed",
+    "id": "1",
+    "description": "Cozy room with a comfortable single bed for solo travelers.",
+    "pricePerNight": 80,
+    "roomSize": "150 sq ft",
+    "roomImage": "https://i.ibb.co/vvpR7gz/tobi-w38w-BWIliw4-unsplash.jpg",
+    "specialOffer": "Free breakfast included",
+    "reviews": 4.5,
+    "roomSummary": "Perfect choice for solo travelers looking for a comfortable stay.",
+    "amenities": ["Free Wi-Fi", "Air Conditioning", "Flat-screen TV"]
+  },
+  {
+    "roomType": "Single Bed",
+    "id": "2",
+    "description": "Modern single bed room with city view and workspace.",
+    "pricePerNight": 90,
+    "roomSize": "180 sq ft",
+    "roomImage": "https://i.ibb.co/611TgnY/calum-lewis-h0j-H2jy-Fj4-unsplash.jpg",
+    "specialOffer": "10% off on spa services",
+    "reviews": 4.7,
+    "roomSummary": "Ideal for business travelers seeking a peaceful stay.",
+    "amenities": ["Free Wi-Fi", "City View", "Workspace"]
+  },
+  {
+    "roomType": "Single Bed",
+    "id": "3",
+    "description": "Deluxe single bed room with balcony and ocean view.",
+    "pricePerNight": 110,
+    "roomSize": "200 sq ft",
+    "roomImage": "https://i.ibb.co/QcBVtd3/spencer-9-J6h-Ldk-Frq-A-unsplash.jpg",
+    "specialOffer": "Complimentary airport transfer",
+    "reviews": 4.8,
+    "roomSummary": "Luxurious stay with stunning ocean views.",
+    "amenities": ["Free Wi-Fi", "Balcony", "Ocean View"]
+  },
+  {
+    "roomType": "Double Bed",
+    "id": "4",
+    "description": "Spacious room with two double beds, suitable for families.",
+    "pricePerNight": 150,
+    "roomSize": "250 sq ft",
+    "roomImage": "https://i.ibb.co/hd9WX3x/kenny-eliason-i-Aftd-Icgp-Fc-unsplash.jpg",
+    "specialOffer": "Kids stay free",
+    "reviews": 4.6,
+    "roomSummary": "Perfect for families looking for a comfortable stay.",
+    "amenities": ["Free Wi-Fi", "Mini Fridge", "Family-friendly"]
+  },
+  {
+    "roomType": "Double Bed",
+    "id": "5",
+    "description": "Elegant room with double beds, perfect for couples.",
+    "pricePerNight": 170,
+    "roomSize": "280 sq ft",
+    "roomImage": "https://i.ibb.co/Bf95VZR/steven-ungermann-a-RT5-UCf2-MYY-unsplash.jpg",
+    "specialOffer": "Complimentary champagne and chocolates",
+    "reviews": 4.9,
+    "roomSummary": "Romantic getaway in a cozy atmosphere.",
+    "amenities": ["Free Wi-Fi", "Ensuite Bathroom", "Romantic Setting"]
+  },
+  {
+    "roomType": "Double Bed",
+    "id": "6",
+    "description": "Luxurious suite with king-size beds and private jacuzzi.",
+    "pricePerNight": 250,
+    "roomSize": "350 sq ft",
+    "roomImage": "https://i.ibb.co/qgmMYyB/erick-palacio-B9-J6ab-AHPA-unsplash.jpg",
+    "specialOffer": "Exclusive access to the hotel's rooftop lounge",
+    "reviews": 5.0,
+    "roomSummary": "Indulge in luxury and enjoy a relaxing stay.",
+    "amenities": ["Free Wi-Fi", "Private Jacuzzi", "King-size Beds"]
+  }
+]

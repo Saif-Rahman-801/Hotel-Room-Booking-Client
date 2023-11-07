@@ -11,6 +11,7 @@ import Login from "./Components/Login/Login.jsx";
 import Register from "./Components/Register/Register.jsx";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Rooms from "./Components/Rooms/Rooms.jsx";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />
+      },
+      {
+        path: "/rooms",
+        element: <Rooms />,
+        loader: () => fetch("/singleBed.json")
       }
     ],
   },
