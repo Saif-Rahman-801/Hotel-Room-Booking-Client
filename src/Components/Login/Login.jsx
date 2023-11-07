@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,6 +15,20 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         toast.success("Login successful");
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        toast.error(error);
+        console.log(error);
+      });
+  };
+
+  
+  const handleGoogleSubmit = () => {
+    signInWithGoogle()
+      .then((result) => {
+        toast.success("Registration successful");
         const user = result.user;
         console.log(user);
       })
@@ -54,6 +68,12 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <input className="btn btn-primary" type="submit" value="Login" />
+              <input
+              onClick={handleGoogleSubmit}
+                className="mt-3 btn btn-primary"
+                type="submit"
+                value="Login with google"
+              />
             </div>
           </form>
           <p className="my-4 text-center">

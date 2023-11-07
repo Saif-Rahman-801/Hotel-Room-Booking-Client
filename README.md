@@ -1,6 +1,7 @@
 # Fetaures we provide in our Web-app
  + You can Subscribe to our Newsletter and keep up to date about our offers and Learn about Hotel Management.
  + You can Create your own account and explore our feature
+ + You can create account with your google account
 
 # Client side repo
 https://github.com/Porgramming-Hero-web-course/b8a11-client-side-Saif-Rahman-801
