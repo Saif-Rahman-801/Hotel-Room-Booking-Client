@@ -3,6 +3,7 @@
  + You can Create your own account and explore our feature
  + You can create account with your google account
  + You can filter rooms by your desired price
+ + You can book your desired room
 
 # Client side repo
 https://github.com/Porgramming-Hero-web-course/b8a11-client-side-Saif-Rahman-801

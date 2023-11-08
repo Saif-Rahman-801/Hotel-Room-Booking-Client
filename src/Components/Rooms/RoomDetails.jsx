@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const RoomDetails = () => {
   const roomData = useLoaderData();
-  console.log(roomData);
+  //   console.log(roomData);
+  const [bookedRoomData, setBookedRoomData] = useState([]);
   const {
     roomImage,
     roomType,
@@ -21,7 +23,23 @@ const RoomDetails = () => {
     roomType,
   };
 
+  useEffect(() => {
+    const loadBookedData = async () => {
+      const res = await fetch("http://localhost:5000/bookedRoom");
+      const data = await res.json();
+      return data;
+    };
+
+    const fetchData = async () => {
+      const bookedData = await loadBookedData();
+      setBookedRoomData(bookedData);
+    };
+    fetchData();
+  }, []);
+  console.log(bookedRoomData);
+
   const handleBooking = () => {
+    // console.log(bookedRoomIds);
     fetch("http://localhost:5000/bookedRoom", {
       method: "POST",
       headers: {
@@ -31,9 +49,9 @@ const RoomDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        if(data.insertedId){
-            toast.success("Successfully Booked Your Room");
+        console.log(data);
+        if (data.insertedId) {
+          toast.success("Successfully Booked Your Room");
         }
       });
   };
