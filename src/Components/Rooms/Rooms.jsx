@@ -46,7 +46,7 @@ const Rooms = () => {
       </div>
       <div className="grid grid-cols-3 gap-6 ">
         {roomData.map((data) => (
-          <RoomCard data={data} key={data.id} />
+          <RoomCard data={data} key={data._id} />
         ))}
       </div>
     </div>

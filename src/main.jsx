@@ -9,10 +9,10 @@ import Home from "./Components/Home/Home.jsx";
 import AuthProvider from "./Context/AuthProvider.jsx";
 import Login from "./Components/Login/Login.jsx";
 import Register from "./Components/Register/Register.jsx";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Rooms from "./Components/Rooms/Rooms.jsx";
-
+import RoomDetails from "./Components/Rooms/RoomDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,17 +25,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register />
+        element: <Register />,
       },
       {
         path: "/rooms",
         element: <Rooms />,
-        loader: () => fetch("/singleBed.json")
-      }
+        loader: () => fetch("http://localhost:5000/rooms"),
+      },
+      {
+        path: "/roomDetails/:id",
+        element: <RoomDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/roomDetails/${params.id}`),
+      },
     ],
   },
 ]);
