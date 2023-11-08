@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 const RoomCard = ({ data }) => {
   const [bookedRooms, setBookedRooms] = useState([]);
-  //   const [bookedRoomIds, setBookedRoomIds] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,11 +16,7 @@ const RoomCard = ({ data }) => {
 
   const handleReview = (_id) => {
     const roomIds = bookedRooms.map((booking) => booking.roomId);
-    // console.log(roomIds);
-    console.log(_id);
     const roomId = roomIds.find((id) => id === _id);
-    console.log(roomId);
-
     if (roomId) {
       navigate("/review");
     } else {

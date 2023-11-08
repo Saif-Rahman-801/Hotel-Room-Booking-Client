@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Rooms from "./Components/Rooms/Rooms.jsx";
 import RoomDetails from "./Components/Rooms/RoomDetails.jsx";
+import Review from "./Components/Review/Review.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roomDetails/${params.id}`),
       },
+      {
+        path: "/review",
+        element: <Review />
+      }
     ],
   },
 ]);
