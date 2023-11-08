@@ -6,6 +6,8 @@ const RoomDetails = () => {
   const roomData = useLoaderData();
   //   console.log(roomData);
   const [bookedRoomData, setBookedRoomData] = useState([]);
+  const [bookedRoomIds, setBookedRoomIds] = useState([]);
+  const [depState, setDepState] = useState(true);
   const {
     roomImage,
     roomType,
@@ -33,13 +35,24 @@ const RoomDetails = () => {
     const fetchData = async () => {
       const bookedData = await loadBookedData();
       setBookedRoomData(bookedData);
+
+      const roomIds = bookedData.map((booking) => booking.roomId);
+      setBookedRoomIds(roomIds);
     };
     fetchData();
-  }, []);
+  }, [depState]);
   console.log(bookedRoomData);
 
+  console.log(bookedRoomIds);
   const handleBooking = () => {
-    // console.log(bookedRoomIds);
+    setDepState(!depState);
+    if (bookedRoomIds.find((bookingId) => bookingId === _id)) {
+      toast.error(
+        "We are sorry, The Room is already booked, Please explore other rooms"
+      );
+      return;
+    }
+
     fetch("http://localhost:5000/bookedRoom", {
       method: "POST",
       headers: {
@@ -49,7 +62,7 @@ const RoomDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           toast.success("Successfully Booked Your Room");
         }
