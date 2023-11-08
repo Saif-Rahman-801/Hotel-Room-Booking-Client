@@ -8,6 +8,7 @@ const RoomDetails = () => {
   const [bookedRoomData, setBookedRoomData] = useState([]);
   const [bookedRoomIds, setBookedRoomIds] = useState([]);
   const [depState, setDepState] = useState(true);
+
   const {
     roomImage,
     roomType,
@@ -77,7 +78,7 @@ const RoomDetails = () => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{roomType} </h2>
-          <div className="text-sm text-gray-700 font-medium">
+          <div className="text-sm text-gray-700 font-medium w-[80%]">
             <p>Description: {description} </p>
             <p>Price: {pricePerNight}$ per night </p>
             <p>Size: {roomSize} </p>
