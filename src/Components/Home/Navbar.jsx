@@ -52,16 +52,16 @@ const Navbar = () => {
                 <Link to="/mybookings">My Bookings</Link>
               </li>
               <li>
-                <a>Testimonials</a>
+                <Link to="/testimonials">Testimonials</Link>
               </li>
               <li>
                 <Link to="/allreviews"> Read All reviews </Link>
               </li>
               <li>
-                <a>About us</a>
+                <Link to="/aboutUs">About us</Link>
               </li>
               <li>
-                <a>Contact us</a>
+                <Link to="/contactUs">Contact us</Link>
               </li>
               <li>
                 <a>Gallery</a>

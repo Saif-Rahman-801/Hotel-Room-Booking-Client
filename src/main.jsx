@@ -18,6 +18,10 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute.jsx";
 import ErrorComponent from "./Components/Error/ErrorComponent.jsx";
 import MyBookings from "./Components/MyBookings/MyBookings.jsx";
 import AllReviews from "./Components/Review/AllReviews.jsx";
+import AboutUs from "./Components/About/AboutUs.jsx";
+import TestimonialC from "./Components/Home/TestimonialC.jsx";
+import ContactUs from "./Components/Contact/ContactUs.jsx";
+// import AboutUs from "./Components/About/AboutUs.jsx"
 
 const router = createBrowserRouter([
   {
@@ -70,6 +74,18 @@ const router = createBrowserRouter([
         element: <AllReviews />,
         loader: () => fetch("http://localhost:5000/reviews"),
       },
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "/testimonials",
+        element: <TestimonialC />
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs />
+      }
     ],
   },
 ]);
