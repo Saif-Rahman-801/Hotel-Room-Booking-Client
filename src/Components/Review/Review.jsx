@@ -1,11 +1,41 @@
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Review = () => {
-  const handleSubmit = () => {
-    // Handle form submission logic
+  const navigate = useNavigate();
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.username.value;
+    const ratings = form.rating.value;
+    const comment = form.comment.value;
+    console.log(name, ratings, comment);
+    const reviewData = {
+      name, ratings, comment
+    }
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.insertedId) {
+          toast.success("Thanks for the review");
+          navigate("/allreviews");
+        }
+      });
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-8 bg-white rounded shadow-lg">
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-md mx-auto mt-8 p-8 bg-white rounded shadow-lg"
+    >
       <h2 className="text-2xl font-bold mb-4">Please Put Your Review</h2>
       <div className="mb-4">
         <label
@@ -51,15 +81,10 @@ const Review = () => {
           placeholder="Enter your comment"
         ></textarea>
       </div>
-      {/* Hidden input field for timestamp (automatically generated on submission) */}
-      <input type="hidden" name="timestamp" value={new Date().toISOString()} />
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
-      >
+      <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
         Submit Review
       </button>
-    </div>
+    </form>
   );
 };
 

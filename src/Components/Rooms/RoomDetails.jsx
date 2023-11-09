@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import AllReviews from "../Review/AllReviews";
 
 const RoomDetails = () => {
   const roomData = useLoaderData();
@@ -9,6 +10,7 @@ const RoomDetails = () => {
   const [bookedRoomIds, setBookedRoomIds] = useState([]);
   const [depState, setDepState] = useState(true);
   const [summery, setSummery] = useState(false);
+  const [peoplereviews, setpeopleReviews] = useState([]);
   const navigate = useNavigate();
 
   const {
@@ -72,57 +74,69 @@ const RoomDetails = () => {
       });
   };
 
+  
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setpeopleReviews(data));
+  }, []);
+
   return (
     <div>
-      <div className="flex w-96 md:w-full flex-col md:flex-row justify-center gap-10 my-10">
-        <div className="card w-[400px] md:w-[500px] h-[500px] bg-base-100 shadow-xl">
-          <figure>
-            <img src={roomImage} alt="room" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{roomType} </h2>
-            <div className="text-sm text-gray-700 font-medium w-[80%]">
-              <p>Description: {description} </p>
-              <p>Price: {pricePerNight}$ per night </p>
-              <p>Size: {roomSize} </p>
-              <p>Offer: {specialOffer} </p>
-              <p>Guest Review: {reviews} </p>
-            </div>
-            <div className="card-actions justify-end">
-              <button
-                // onClick={handleBooking}
-                onClick={() => setSummery(true)}
-                className="btn btn-primary rounded-md"
-              >
-                Book Now
-              </button>
+      <div>
+        <div className="flex w-96 md:w-full flex-col md:flex-row justify-center gap-10 my-10">
+          <div className="card w-[400px] md:w-[500px] h-[500px] bg-base-100 shadow-xl">
+            <figure>
+              <img src={roomImage} alt="room" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{roomType} </h2>
+              <div className="text-sm text-gray-700 font-medium w-[80%]">
+                <p>Description: {description} </p>
+                <p>Price: {pricePerNight}$ per night </p>
+                <p>Size: {roomSize} </p>
+                <p>Offer: {specialOffer} </p>
+                <p>Guest Review: {reviews} </p>
+              </div>
+              <div className="card-actions justify-end">
+                <button
+                  // onClick={handleBooking}
+                  onClick={() => setSummery(true)}
+                  className="btn btn-primary rounded-md"
+                >
+                  Book Now
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className={
-            summery
-              ? "summary-container bg-white p-4 rounded-md shadow-md"
-              : "hidden"
-          }
-        >
-          <h2 className="text-xl font-bold mb-2">Booking Summary</h2>
-          <p>
-            <strong>Room Type:</strong> {roomType}
-          </p>
-          <p className="my-4">
-            <strong>Description:</strong> {description}
-          </p>
-          <p>
-            <strong>Price:</strong> {pricePerNight}$ per night
-          </p>
-          <button
-            onClick={handleBooking}
-            className="btn btn-primary rounded-md my-5"
+          <div
+            className={
+              summery
+                ? "summary-container bg-white p-4 rounded-md shadow-md"
+                : "hidden"
+            }
           >
-            Confirm Booking
-          </button>
+            <h2 className="text-xl font-bold mb-2">Booking Summary</h2>
+            <p>
+              <strong>Room Type:</strong> {roomType}
+            </p>
+            <p className="my-4">
+              <strong>Description:</strong> {description}
+            </p>
+            <p>
+              <strong>Price:</strong> {pricePerNight}$ per night
+            </p>
+            <button
+              onClick={handleBooking}
+              className="btn btn-primary rounded-md my-5"
+            >
+              Confirm Booking
+            </button>
+          </div>
         </div>
+      </div>
+      <div className="my-10">
+        <AllReviews peoplereviews={peoplereviews} />
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ import Review from "./Components/Review/Review.jsx";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute.jsx";
 import ErrorComponent from "./Components/Error/ErrorComponent.jsx";
 import MyBookings from "./Components/MyBookings/MyBookings.jsx";
+import AllReviews from "./Components/Review/AllReviews.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
         path: "/mybookings",
         element: <MyBookings />,
         loader: () => fetch("http://localhost:5000/bookedRoom"),
+      },
+      {
+        path: "/allreviews",
+        element: <AllReviews />,
+        loader: () => fetch("http://localhost:5000/reviews")
       }
     ],
   },
