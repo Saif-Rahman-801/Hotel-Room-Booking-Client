@@ -10,11 +10,6 @@
 # Live Website link
 https://the-grand-bonjour.web.app
 
-# Client side repo
-https://github.com/Porgramming-Hero-web-course/b8a11-client-side-Saif-Rahman-801
-
-# Server side repo
-https://github.com/Porgramming-Hero-web-course/b8a11-server-side-Saif-Rahman-801
 
 
 # React + Vite
