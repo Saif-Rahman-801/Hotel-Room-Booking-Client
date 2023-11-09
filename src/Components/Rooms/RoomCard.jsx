@@ -18,7 +18,7 @@ const RoomCard = ({ data }) => {
     const roomIds = bookedRooms.map((booking) => booking.roomId);
     const roomId = roomIds.find((id) => id === _id);
     if (roomId) {
-      navigate("/review");
+      navigate(`/review/${_id}`);
     } else {
       toast.error("Please Book the room to give a review");
     }

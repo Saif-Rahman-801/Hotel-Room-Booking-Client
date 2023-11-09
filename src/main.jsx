@@ -14,11 +14,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Rooms from "./Components/Rooms/Rooms.jsx";
 import RoomDetails from "./Components/Rooms/RoomDetails.jsx";
 import Review from "./Components/Review/Review.jsx";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute.jsx";
+import ErrorComponent from "./Components/Error/ErrorComponent.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorComponent />,
     children: [
       {
         path: "/",
@@ -39,14 +42,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/roomDetails/:id",
-        element: <RoomDetails />,
+        element: (
+          <PrivateRoute>
+            <RoomDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roomDetails/${params.id}`),
       },
       {
-        path: "/review",
-        element: <Review />
-      }
+        path: "/review/:id",
+        element: <Review />,
+      },
     ],
   },
 ]);
