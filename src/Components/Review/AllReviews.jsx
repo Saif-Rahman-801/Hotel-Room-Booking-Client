@@ -14,7 +14,7 @@ const AllReviews = ({peoplereviews}) => {
             <div className="mb-2">
               <h3 className="text-lg font-semibold mb-2">{review.name}</h3>
               <p className="text-gray-600">{review.comment}</p>
-              <p className="text-gray-600">Ratings{review.ratings}</p>
+              <p className="text-gray-600">Ratings: {review.ratings}</p>
             </div>
           </div>
         ))}

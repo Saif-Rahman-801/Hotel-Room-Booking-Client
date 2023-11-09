@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Review = () => {
-  const navigate = useNavigate();
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +24,7 @@ const Review = () => {
         // console.log(data);
         if (data.insertedId) {
           toast.success("Thanks for the review");
-          navigate("/allreviews");
+          
         }
       });
   };

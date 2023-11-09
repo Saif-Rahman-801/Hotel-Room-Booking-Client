@@ -54,7 +54,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/review/:id",
-        element: <Review />,
+        element: (
+          <PrivateRoute>
+            <Review />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/mybookings",
@@ -64,8 +68,8 @@ const router = createBrowserRouter([
       {
         path: "/allreviews",
         element: <AllReviews />,
-        loader: () => fetch("http://localhost:5000/reviews")
-      }
+        loader: () => fetch("http://localhost:5000/reviews"),
+      },
     ],
   },
 ]);
