@@ -55,9 +55,6 @@ const Navbar = () => {
                 <Link to="/testimonials">Testimonials</Link>
               </li>
               <li>
-                <Link to="/allreviews"> Read All reviews </Link>
-              </li>
-              <li>
                 <Link to="/aboutUs">About us</Link>
               </li>
               <li>
