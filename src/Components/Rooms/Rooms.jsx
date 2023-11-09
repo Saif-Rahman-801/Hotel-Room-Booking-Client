@@ -1,11 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import RoomCard from "./RoomCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const Rooms = () => {
   const data = useLoaderData();
   const [roomData, setRoomData] = useState(data);
+  const [bookedRoom, setbookedRoom] = useState([]);
   const handleFilter = (e) => {
     e.preventDefault();
     const price = e.target.price.value;
@@ -19,6 +20,12 @@ const Rooms = () => {
     setRoomData(filteredData);
     e.target.reset();
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/bookedRoom")
+      .then((res) => res.json())
+      .then((data) => setbookedRoom(data));
+  }, []);
 
   return (
     <div>
@@ -43,6 +50,11 @@ const Rooms = () => {
         >
           See All
         </button>
+      </div>
+      <div>
+        <h2 className="text-3xl font-semibold">
+          Avaiable Seats: {roomData.length - bookedRoom.length}
+        </h2>
       </div>
       <div className="grid grid-cols-3 gap-6 ">
         {roomData.map((data) => (

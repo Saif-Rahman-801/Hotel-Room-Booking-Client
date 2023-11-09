@@ -15,7 +15,6 @@ const RoomDetails = () => {
     roomType,
     description,
     pricePerNight,
-    availability,
     roomSize,
     specialOffer,
     reviews,
@@ -92,7 +91,7 @@ const RoomDetails = () => {
               <p>Size: {roomSize} </p>
               <p>Offer: {specialOffer} </p>
               <p>Guest Review: {reviews} </p>
-              <p>Available Room: {availability} </p>
+             
             </div>
             <div className="card-actions justify-end">
               <button
