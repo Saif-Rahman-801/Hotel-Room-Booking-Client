@@ -31,7 +31,9 @@ const RoomDetails = () => {
 
   useEffect(() => {
     const loadBookedData = async () => {
-      const res = await fetch("http://localhost:5000/bookedRoom");
+      const res = await fetch(
+        "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/bookedRoom"
+      );
       const data = await res.json();
       return data;
     };
@@ -57,13 +59,16 @@ const RoomDetails = () => {
       return;
     }
 
-    fetch("http://localhost:5000/bookedRoom", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookingData),
-    })
+    fetch(
+      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/bookedRoom",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -74,9 +79,10 @@ const RoomDetails = () => {
       });
   };
 
-  
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(
+      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/reviews"
+    )
       .then((res) => res.json())
       .then((data) => setpeopleReviews(data));
   }, []);

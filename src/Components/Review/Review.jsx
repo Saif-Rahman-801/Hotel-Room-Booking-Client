@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
 const Review = () => {
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -10,21 +9,25 @@ const Review = () => {
     const comment = form.comment.value;
     console.log(name, ratings, comment);
     const reviewData = {
-      name, ratings, comment
-    }
-    fetch("http://localhost:5000/reviews", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(reviewData),
-    })
+      name,
+      ratings,
+      comment,
+    };
+    fetch(
+      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/reviews",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
         if (data.insertedId) {
           toast.success("Thanks for the review");
-          
         }
       });
   };

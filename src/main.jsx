@@ -44,7 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/rooms",
         element: <Rooms />,
-        loader: () => fetch("http://localhost:5000/rooms"),
+        loader: () =>
+          fetch(
+            "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/rooms"
+          ),
       },
       {
         path: "/roomDetails/:id",
@@ -54,7 +57,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roomDetails/${params.id}`),
+          fetch(
+            `https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/roomDetails/${params.id}`
+          ),
       },
       {
         path: "/review/:id",
@@ -67,12 +72,18 @@ const router = createBrowserRouter([
       {
         path: "/mybookings",
         element: <MyBookings />,
-        loader: () => fetch("http://localhost:5000/bookedRoom"),
+        loader: () =>
+          fetch(
+            "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/bookedRoom"
+          ),
       },
       {
         path: "/allreviews",
         element: <AllReviews />,
-        loader: () => fetch("http://localhost:5000/reviews"),
+        loader: () =>
+          fetch(
+            "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/reviews"
+          ),
       },
       {
         path: "/aboutUs",
@@ -80,12 +91,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/testimonials",
-        element: <TestimonialC />
+        element: <TestimonialC />,
       },
       {
         path: "/contactUs",
-        element: <ContactUs />
-      }
+        element: <ContactUs />,
+      },
     ],
   },
 ]);
