@@ -1,38 +1,49 @@
-import { useState } from "react";
+
 import { useLoaderData } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const MyBookings = () => {
   const bookedRooms = useLoaderData();
   const [bookedData, setbookedData] = useState(bookedRooms);
 
   const handleDeleteBooking = (roomId) => {
-    fetch(`http://localhost:5000/bookedRoom/${roomId}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        if (data.deletedCount > 0) {
-          toast.success("Booking deleted successfully");
-          const remaining = bookedData.filter((data) => data._id !== roomId);
-          setbookedData(remaining);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this booking!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(`http://localhost:5000/bookedRoom/${roomId}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Success!", "Booking deleted successfully!", "success");
+              const remaining = bookedData.filter((data) => data._id !== roomId);
+              setbookedData(remaining);
+            } else {
+              Swal.fire("Error", "Failed to delete booking", "error");
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting booking:", error);
+            Swal.fire("Error", "Failed to delete booking", "error");
+          });
+      }
+    });
   };
 
   return (
     <div className="container mx-auto mt-8 p-4">
       <h2 className="text-2xl font-bold mb-4">My Bookings</h2>
       {bookedData.map((booking) => (
-        <div
-          key={booking.roomId}
-          className="border p-4 mb-4 flex justify-between items-center"
-        >
+        <div key={booking._id} className="border p-4 mb-4 flex justify-between items-center">
           <div>
-            <p className="text-lg font-semibold">
-              Room Type: {booking.roomType}
-            </p>
+            <p className="text-lg font-semibold">Room Type: {booking.roomType}</p>
             <p className="text-gray-700">Room ID: {booking._id}</p>
           </div>
           <button
@@ -48,3 +59,4 @@ const MyBookings = () => {
 };
 
 export default MyBookings;
+

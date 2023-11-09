@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const RoomDetails = () => {
@@ -9,6 +9,7 @@ const RoomDetails = () => {
   const [bookedRoomIds, setBookedRoomIds] = useState([]);
   const [depState, setDepState] = useState(true);
   const [summery, setSummery] = useState(false);
+  const navigate = useNavigate();
 
   const {
     roomImage,
@@ -66,6 +67,7 @@ const RoomDetails = () => {
         // console.log(data);
         if (data.insertedId) {
           toast.success("Successfully Booked Your Room");
+          navigate("/mybookings")
         }
       });
   };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import HomeImgCard from "./HomeImgCard";
+import { Link } from "react-router-dom";
 
 const HomeImg = () => {
   const [imgData, setImgData] = useState([]);
@@ -17,6 +18,13 @@ const HomeImg = () => {
         {imgData.map((img) => (
           <HomeImgCard key={img._id} img={img} />
         ))}
+      </div>
+      <div className="text-center my-5">
+        <Link to="/rooms">
+        <button className="btn btn-primary rounded-md">
+          Book Now
+        </button>
+        </Link>
       </div>
     </div>
   );
