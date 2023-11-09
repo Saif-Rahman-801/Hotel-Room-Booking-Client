@@ -67,20 +67,14 @@ const RoomDetails = () => {
         // console.log(data);
         if (data.insertedId) {
           toast.success("Successfully Booked Your Room");
-          navigate("/mybookings")
+          navigate("/mybookings");
         }
       });
   };
 
   return (
     <div>
-      <div
-        className={
-          summery
-            ? "hidden"
-            : "flex w-96 md:w-full flex-col md:flex-row justify-center gap-10 my-10"
-        }
-      >
+      <div className="flex w-96 md:w-full flex-col md:flex-row justify-center gap-10 my-10">
         <div className="card w-[400px] md:w-[500px] h-[500px] bg-base-100 shadow-xl">
           <figure>
             <img src={roomImage} alt="room" />
@@ -93,10 +87,10 @@ const RoomDetails = () => {
               <p>Size: {roomSize} </p>
               <p>Offer: {specialOffer} </p>
               <p>Guest Review: {reviews} </p>
-             
             </div>
             <div className="card-actions justify-end">
               <button
+                // onClick={handleBooking}
                 onClick={() => setSummery(true)}
                 className="btn btn-primary rounded-md"
               >
@@ -105,21 +99,26 @@ const RoomDetails = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className={
-          summery === false
-            ? "hidden"
-            : "card w-[400px] md:w-[500px] h-auto bg-base-100 shadow-xl my-5"
-        }
-      >
-        <h2 className="text-center text-4xl font-bold">Your Room Summery</h2>
-        <div className="shadow-xl rounded-md flex flex-col justify-center text-xl font-semibold ">
-          <h2 className="p-4">Price: {pricePerNight}$ per night </h2>
-          <h2 className="p-4">Description: {description} </h2>
+        <div
+          className={
+            summery
+              ? "summary-container bg-white p-4 rounded-md shadow-md"
+              : "hidden"
+          }
+        >
+          <h2 className="text-xl font-bold mb-2">Booking Summary</h2>
+          <p>
+            <strong>Room Type:</strong> {roomType}
+          </p>
+          <p className="my-4">
+            <strong>Description:</strong> {description}
+          </p>
+          <p>
+            <strong>Price:</strong> {pricePerNight}$ per night
+          </p>
           <button
             onClick={handleBooking}
-            className="btn btn-primary rounded-md"
+            className="btn btn-primary rounded-md my-5"
           >
             Confirm Booking
           </button>
