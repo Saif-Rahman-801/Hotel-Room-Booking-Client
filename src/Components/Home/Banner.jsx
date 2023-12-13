@@ -3,7 +3,7 @@ const Banner = () => {
     <div className="relative h-96 bg-gray-900 text-white flex items-center justify-center rounded-md my-5">
       <div className="absolute inset-0">
         <img
-          src="https://i.ibb.co/thfcQJ9/vojtech-bruzek-Yrxr3bs-Pd-S0-unsplash.jpg"
+          src="https://i.ibb.co/XtGxc0S/vojtech-bruzek-Yrxr3bs-Pd-S0-unsplash-1.jpg"
           alt="Overlay"
           className="object-cover w-full h-full opacity-50"
         />

@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 const HomeImg = () => {
   const [imgData, setImgData] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/homeImg"
-    )
+    fetch("https://hotel-room-booking-server-five.vercel.app/homeImg")
       .then((res) => res.json())
       .then((data) => setImgData(data));
   }, []);

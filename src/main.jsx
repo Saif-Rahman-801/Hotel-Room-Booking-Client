@@ -45,9 +45,7 @@ const router = createBrowserRouter([
         path: "/rooms",
         element: <Rooms />,
         loader: () =>
-          fetch(
-            "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/rooms"
-          ),
+          fetch("https://hotel-room-booking-server-five.vercel.app/rooms"),
       },
       {
         path: "/roomDetails/:id",
@@ -58,7 +56,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/roomDetails/${params.id}`
+            `https://hotel-room-booking-server-five.vercel.app/roomDetails/${params.id}`
           ),
       },
       {
@@ -73,17 +71,13 @@ const router = createBrowserRouter([
         path: "/mybookings",
         element: <MyBookings />,
         loader: () =>
-          fetch(
-            "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/bookedRoom"
-          ),
+          fetch("https://hotel-room-booking-server-five.vercel.app/bookedRoom"),
       },
       {
         path: "/allreviews",
         element: <AllReviews />,
         loader: () =>
-          fetch(
-            "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/reviews"
-          ),
+          fetch("https://hotel-room-booking-server-five.vercel.app/reviews"),
       },
       {
         path: "/aboutUs",

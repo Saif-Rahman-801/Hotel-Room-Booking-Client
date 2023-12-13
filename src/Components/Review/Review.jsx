@@ -13,16 +13,13 @@ const Review = () => {
       ratings,
       comment,
     };
-    fetch(
-      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/reviews",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(reviewData),
-      }
-    )
+    fetch("https://hotel-room-booking-server-five.vercel.app/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

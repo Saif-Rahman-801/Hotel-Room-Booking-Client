@@ -7,9 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 const TestimonialC = () => {
   const [testimonials, setTestimonials] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/testimonials"
-    )
+    fetch("https://hotel-room-booking-server-five.vercel.app/testimonials")
       .then((res) => res.json())
       .then((data) => setTestimonials(data));
   }, []);

@@ -16,7 +16,7 @@ const MyBookings = () => {
     }).then((willDelete) => {
       if (willDelete) {
         fetch(
-          `https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/bookedRoom/${roomId}`,
+          `https://hotel-room-booking-server-five.vercel.app/bookedRoom/${roomId}`,
           {
             method: "DELETE",
           }

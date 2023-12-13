@@ -22,9 +22,7 @@ const Rooms = () => {
   };
 
   useEffect(() => {
-    fetch(
-      "https://hotel-room-booking-server-mh2xwcwcl-saifrahmans-projects.vercel.app/bookedRoom"
-    )
+    fetch("https://hotel-room-booking-server-five.vercel.app/bookedRoom")
       .then((res) => res.json())
       .then((data) => setbookedRoom(data));
   }, []);
